@@ -19,10 +19,11 @@ app.use(cookieParser());
 
 app.use(bodyParser.json())
 const corsOptions = {
-    origin: 'http://localhost:5173',
-    Method: ['POST', 'GET', 'PUT', 'DELETE'],
+    origin: '*', // or your frontend origin
+    methods: ['POST', 'GET', 'PUT', 'DELETE'],
     credentials: true,
 }
+
 app.use(cors(corsOptions))
 
 
