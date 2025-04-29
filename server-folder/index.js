@@ -26,7 +26,7 @@ const corsOptions = {
 app.use(cors(corsOptions))
 
 
-mongoose.connect('mongodb://localhost:27017/MernProj').then(() => {
+mongoose.connect('mongodb+srv://miralizion2024:1ps9p1B9FWhdwosz@cluster0.hy3okm1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0').then(() => {
     console.log('Connected to MongoDB');
 })
 
