@@ -8,7 +8,7 @@ const UserNavbar = () => {
     // const [cookies, setCookie, removeCookie] = useCookies(['token']);
     // const navigate = useNavigate();
     // const [cookieData, setCookieData] = useState(null);
-    // const BASE_URL = "https://ecom-backend-production-66e4.up.railway.app/";
+    // const BASE_URL = "http://miralbackend.venuspaneliya.live/";
 
     // // Fetch user data from the backend when the component mounts or cookies change
     // useEffect(() => {
@@ -66,7 +66,7 @@ const UserNavbar = () => {
         role: ''
     });
 
-    const BASE_URL = 'https://ecom-backend-production-66e4.up.railway.app/';
+    const BASE_URL = 'http://miralbackend.venuspaneliya.live/';
 
 
 

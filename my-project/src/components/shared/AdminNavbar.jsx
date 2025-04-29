@@ -9,7 +9,7 @@ const AdminNavbar = ({ setIsOpenProduct, setIsOpenUser, setIsMainMenu }) => {
     // fetch admin details
     const [cookies, setCookie, removeCookie] = useCookies(['Token']);
     const [admin, setAdmin] = useState({});
-    const BASE_URL = "https://ecom-backend-production-66e4.up.railway.app/"
+    const BASE_URL = "http://miralbackend.venuspaneliya.live/"
 
     const navigate = useNavigate()
 
@@ -20,7 +20,7 @@ const AdminNavbar = ({ setIsOpenProduct, setIsOpenUser, setIsMainMenu }) => {
 
     useEffect(() => {
         // Fetch admin details from API using axios
-        axios.get('https://ecom-backend-production-66e4.up.railway.app/user/get-admin')
+        axios.get('http://miralbackend.venuspaneliya.live/user/get-admin')
             .then(response => {
                 setAdmin(response.data)
             })
