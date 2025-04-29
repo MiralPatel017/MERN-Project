@@ -38,7 +38,7 @@ const UserProfilePage = () => {
     }, [cookieUser]);
 
     
-    const BASE_URL = 'http://miralbackend.venuspaneliya.live/';
+    const BASE_URL = 'https://miralbackend.venuspaneliya.live/';
 
     // fetch user handler
     const fetchUserData = async () => {

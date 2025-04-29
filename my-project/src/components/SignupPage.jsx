@@ -32,7 +32,7 @@ const SignupPage = () => {
         Object.entries(formData).forEach(([key, value]) => newFormData.append(key, value));
 
         try {
-            const res = await axios.post('http://miralbackend.venuspaneliya.live/user/signup', newFormData, {
+            const res = await axios.post('https://miralbackend.venuspaneliya.live/user/signup', newFormData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 },

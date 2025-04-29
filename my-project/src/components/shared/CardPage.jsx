@@ -2,7 +2,7 @@ import React from 'react'
 
 const CardPage = ({ producttitle, productimage, productdic, productprice }) => {
 
-  const BASE_URL = "http://miralbackend.venuspaneliya.live/"
+  const BASE_URL = "https://miralbackend.venuspaneliya.live/"
   
   return (
     <div>

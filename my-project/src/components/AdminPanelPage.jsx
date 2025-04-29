@@ -26,7 +26,7 @@ const AdminPanelPage = () => {
     const [isOpenDeleteUser, setIsOpenDeleteUser] = useState(false)
 
     const ref = useRef(null)
-    const BASE_URL = "http://miralbackend.venuspaneliya.live/"
+    const BASE_URL = "https://miralbackend.venuspaneliya.live/"
 
     const [editForm, setEditForm] = useState({
         //  id: product._id,
@@ -48,7 +48,7 @@ const AdminPanelPage = () => {
     // fetch All Products
     const fetchProducts = async () => {
         try {
-            const res = await axios.get(' http://miralbackend.venuspaneliya.live/product/get-all-products');
+            const res = await axios.get(' https://miralbackend.venuspaneliya.live/product/get-all-products');
             setProducts(res.data);
         } catch (error) {
             console.error('Error fetching products:', error);
@@ -58,7 +58,7 @@ const AdminPanelPage = () => {
     // fetch all user
     const fetchUser = async () => {
         try {
-            const res = await axios.get('http://miralbackend.venuspaneliya.live/user/get-all-user')
+            const res = await axios.get('https://miralbackend.venuspaneliya.live/user/get-all-user')
             setUser(res.data);
         } catch (error) {
             console.error('Error fetching user:', error)
@@ -74,7 +74,7 @@ const AdminPanelPage = () => {
     // delete user
     const handleDeleteUser = async (_id) => {
         try {
-            await axios.delete(`http://miralbackend.venuspaneliya.live/user/delete-user/${_id}`)
+            await axios.delete(`https://miralbackend.venuspaneliya.live/user/delete-user/${_id}`)
             alert('User deleted successfully..')
             fetchUser()
             setIsOpenDeleteUser(false)
@@ -88,7 +88,7 @@ const AdminPanelPage = () => {
 
         console.log("clicked on handleDeleteProducts... ")
         try {
-            await axios.delete(` http://miralbackend.venuspaneliya.live/product/delete-product/${_id}`)
+            await axios.delete(` https://miralbackend.venuspaneliya.live/product/delete-product/${_id}`)
             alert('Product deleted successfully..')
             fetchProducts()
             setIsOpenDeleteProduct(false)
@@ -162,7 +162,7 @@ const AdminPanelPage = () => {
         Object.entries(formData).forEach(([key, value]) => newFormData.append(key, value));
 
         try {
-            const res = await axios.post('http://miralbackend.venuspaneliya.live/product/add-new-product', newFormData, {
+            const res = await axios.post('https://miralbackend.venuspaneliya.live/product/add-new-product', newFormData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 },
@@ -196,7 +196,7 @@ const AdminPanelPage = () => {
 
         try {
             const res = await axios.put(
-                `http://miralbackend.venuspaneliya.live/product/update-product/${editForm._id}`,
+                `https://miralbackend.venuspaneliya.live/product/update-product/${editForm._id}`,
                 updatedFormData,
                 {
                     headers: {

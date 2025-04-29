@@ -38,7 +38,7 @@ const Header = () => {
       //   {cookies.token && admin ? (
       //     <div className="flex items-center space-x-4">
       //       <img
-      //         src={`http://miralbackend.venuspaneliya.live${admin.profileimage.slice(1)}`}
+      //         src={`https://miralbackend.venuspaneliya.live${admin.profileimage.slice(1)}`}
       //         alt="Admin"
       //         className="w-10 h-10 rounded-full object-cover border border-white"
       //       />

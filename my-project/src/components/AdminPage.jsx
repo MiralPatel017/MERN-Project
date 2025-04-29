@@ -18,7 +18,7 @@ const AdminPage = () => {
   const handleSubmitData = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(' http://miralbackend.venuspaneliya.live/user/admin-signin', formData, {
+      const res = await axios.post(' https://miralbackend.venuspaneliya.live/user/admin-signin', formData, {
         withCredentials: true
       })
       res.status === 200 && navigate('/panel-page');

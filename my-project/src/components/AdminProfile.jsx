@@ -19,12 +19,12 @@ const AdminProfile = () => {
     const fileRef = useRef(null);
 
     // const adminId = '680884b32dab1108a29cae78';
-    const BASE_URL = 'http://miralbackend.venuspaneliya.live/';
+    const BASE_URL = 'https://miralbackend.venuspaneliya.live/';
 
     // fetching admin data
     const fetchAdminData = async () => {
         try {
-            const res = await axios.get(`http://miralbackend.venuspaneliya.live/user/get-admin`, { withCredentials: true });
+            const res = await axios.get(`https://miralbackend.venuspaneliya.live/user/get-admin`, { withCredentials: true });
             setAdminData(res.data);
         } catch (error) {
             console.error("Error fetching admin data:", error);
@@ -64,7 +64,7 @@ const AdminProfile = () => {
 
 
         try {
-            const res = await axios.put(`http://miralbackend.venuspaneliya.live/user/update-admin/${adminData._id}`, formData, {
+            const res = await axios.put(`https://miralbackend.venuspaneliya.live/user/update-admin/${adminData._id}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
