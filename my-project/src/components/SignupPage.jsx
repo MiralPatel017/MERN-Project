@@ -32,7 +32,7 @@ const SignupPage = () => {
         Object.entries(formData).forEach(([key, value]) => newFormData.append(key, value));
 
         try {
-            const res = await axios.post('http://localhost:5713/user/signup', newFormData, {
+            const res = await axios.post('https://ecom-backend-production-66e4.up.railway.app/user/signup', newFormData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 },

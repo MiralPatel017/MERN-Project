@@ -18,7 +18,7 @@ const AdminPage = () => {
   const handleSubmitData = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(' http://localhost:5713/user/admin-signin', formData, {
+      const res = await axios.post(' https://ecom-backend-production-66e4.up.railway.app/user/admin-signin', formData, {
         withCredentials: true
       })
       res.status === 200 && navigate('/panel-page');

@@ -10,7 +10,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get(' http://localhost:5713/product/get-all-products');
+        const res = await axios.get(' https://ecom-backend-production-66e4.up.railway.app/product/get-all-products');
         setProducts(res.data);
       } catch (error) {
         console.error('Error fetching products:', error);
@@ -20,7 +20,7 @@ const HomePage = () => {
 
     const fetchUser = async () => {
       try {
-        const res = await axios.get('http://localhost:5713/user/get-all-user')
+        const res = await axios.get('https://ecom-backend-production-66e4.up.railway.app/user/get-all-user')
         setUser(res.data);
       } catch (error) {
         console.error('Error fetching user:', error)
