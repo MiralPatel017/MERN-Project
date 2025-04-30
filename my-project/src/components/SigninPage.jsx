@@ -18,7 +18,7 @@ const SigninPage = () => {
   const handleSubmitData = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('https://miralbackend.venuspaneliya.live/user/signin', formData, {
+      const res = await axios.post('https://ecom-backend-production-66e4.up.railway.app/user/signin', formData, {
         withCredentials: true
       })
       if (res.status === 200) {

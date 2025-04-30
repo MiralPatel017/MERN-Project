@@ -38,7 +38,7 @@ const UserProfilePage = () => {
     }, [cookieUser]);
 
     
-    const BASE_URL = 'https://miralbackend.venuspaneliya.live/';
+    const BASE_URL = 'https://ecom-backend-production-66e4.up.railway.app/';
 
     // fetch user handler
     const fetchUserData = async () => {

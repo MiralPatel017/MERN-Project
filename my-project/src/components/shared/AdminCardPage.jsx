@@ -13,7 +13,7 @@ const AdminCardPAge = ({
     setProduct,
     setNewProductDelete,
     setIsOpenDeleteProduct }) => {
-    const BASE_URL = "https://miralbackend.venuspaneliya.live/"
+    const BASE_URL = "https://ecom-backend-production-66e4.up.railway.app/"
 
     const handleOnEdit = () => {
         console.log("button clicked...")

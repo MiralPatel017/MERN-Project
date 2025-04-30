@@ -8,7 +8,7 @@ const AdminNavbar = ({ setIsOpenProduct, setIsOpenUser, setIsMainMenu }) => {
     // fetch admin details
     const Token = localStorage.getItem("Token")
     const [admin, setAdmin] = useState({});
-    const BASE_URL = "https://miralbackend.venuspaneliya.live/"
+    const BASE_URL = "https://ecom-backend-production-66e4.up.railway.app/"
 
     const navigate = useNavigate()
 
@@ -19,7 +19,7 @@ const AdminNavbar = ({ setIsOpenProduct, setIsOpenUser, setIsMainMenu }) => {
 
     useEffect(() => {
         // Fetch admin details from API using axios
-        axios.get('https://miralbackend.venuspaneliya.live/user/get-admin')
+        axios.get('https://ecom-backend-production-66e4.up.railway.app/user/get-admin')
             .then(response => {
                 setAdmin(response.data)
             })
