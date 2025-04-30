@@ -18,11 +18,15 @@ app.use(cookieParser());
 // app.use(express.json());
 
 app.use(bodyParser.json())
+
 const corsOptions = {
-    origin: '*', // or your frontend origin
-    methods: ['POST', 'GET', 'PUT', 'DELETE'],
-    credentials: true,
-}
+    origin: '*', // Allow all origins
+    methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'], // Allow all HTTP methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Allow specific headers
+    credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+    preflightContinue: false, // Pass the CORS preflight response to the next handler
+    optionsSuccessStatus: 204 // Some legacy browsers choke on 204
+};
 
 app.use(cors(corsOptions))
 

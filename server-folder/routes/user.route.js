@@ -95,9 +95,9 @@ userRouter.post('/signin', async (req, res) => {
 
         // expire token in 1 day
         res.cookie('token', token, {
-            httpOnly: false,
-            secure: false,
-            sameSite: 'strict',
+            httpOnly: true,
+            secure: true,
+            sameSite: 'none',
             maxAge: 24 * 60 * 60 * 1000,
         })
 
@@ -142,7 +142,7 @@ userRouter.post('/admin-signin', async (req, res) => {
         res.cookie("Token", token, {
             httpOnly: true,
             secure: true,
-            sameSite: 'strict',
+            sameSite: 'none',   
             maxAge: 24 * 60 * 60 * 1000,
         })
 
