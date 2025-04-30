@@ -1,13 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { useCookies } from 'react-cookie';
 
 const UserProfilePage = () => {
     const navigate = useNavigate();
-    const [cookies, , removeCookie] = useCookies(['token']);
 
     const [cookieUser, setCookieUser] = useState(null);
+    const token = localStorage.getItem("token")
     const [userData, setUserData] = useState({
         _id: '',
         username: '',
@@ -22,12 +21,13 @@ const UserProfilePage = () => {
 
     // cookie handler
     useEffect(() => {
-        const userInfo = cookies.token && JSON.parse(atob(cookies.token.split('.')[1]));
+        const token = localStorage.getItem("token")
+        const userInfo = token && JSON.parse(atob(token.split('.')[1]));
         if (userInfo) {
             // console.log("user info :", userInfo)
             setCookieUser(userInfo);
         }
-    }, [cookies]);
+    }, []);
 
     // store cookie data 
     useEffect(() => {
@@ -108,7 +108,7 @@ const UserProfilePage = () => {
 
 
     const handleLogout = () => {
-        removeCookie('token');
+        localStorage.removeItem("token")
         navigate('/');
     };
 

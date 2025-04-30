@@ -1,4 +1,3 @@
-import { useCookies } from 'react-cookie';
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -36,18 +35,17 @@ const UserNavbar = () => {
     //     };
 
     //     // Only fetch the user if token and user ID are present in cookies
-    //     if (cookies.token && cookies.user?._id) {
+    //     if (token && cookies.user?._id) {
     //         fetchUser();
     //     } else {
     //         console.log('No token or user ID in cookies');
     //     }
-    // }, [cookies.token, cookies.user]);
+    // }, [token, cookies.user]);
 
     // // Logout function to clear cookies and navigate to home page
 
     const handleLogout = () => {
-        removeCookie('token');
-        removeCookie('user');
+        localStorage.removeItem("token")
         navigate('/');
     };
 
@@ -55,7 +53,7 @@ const UserNavbar = () => {
 
 
     const navigate = useNavigate();
-    const [cookies, , removeCookie] = useCookies(['token']);
+    const token = localStorage.getItem("token");
     const [selectedImage, setSelectedImage] = useState(null);
     const [cookieUser, setCookieUser] = useState(null);
     const [userData, setUserData] = useState({
@@ -71,12 +69,14 @@ const UserNavbar = () => {
 
 
     useEffect(() => {
-        const userInfo = cookies.token && JSON.parse(atob(cookies.token.split('.')[1]));
+        const token = localStorage.getItem("token");
+
+        const userInfo = token && JSON.parse(atob(token.split('.')[1]));
         if (userInfo) {
             // console.log('userinfo :',userInfo)
             setCookieUser(userInfo);
         }
-    }, [cookies]);
+    }, []);
 
     useEffect(() => {
         if (cookieUser && cookieUser._id) {
@@ -103,7 +103,7 @@ const UserNavbar = () => {
             <div className="flex items-center gap-4">
                 {userData ? (
                     <div className="relative group">
-                        {cookies.token ?
+                        {token ?
                             <>
                                 <div className="flex items-center cursor-pointer space-x-2">
                                     <img

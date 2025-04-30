@@ -21,7 +21,11 @@ const SigninPage = () => {
       const res = await axios.post('https://miralbackend.venuspaneliya.live/user/signin', formData, {
         withCredentials: true
       })
-      res.status === 200 && navigate('/home-page');
+      if (res.status === 200) {
+        console.log("res data", res.data.token)
+        localStorage.setItem('token', res.data.token);
+        navigate('/home-page')
+      };
     } catch (error) {
 
       setErrorMessage(error.response.data.message)
@@ -78,7 +82,7 @@ const SigninPage = () => {
 
 
             {/* error message */}
-            { errorMessage &&
+            {errorMessage &&
               <p className='text-center text-red-500 font-semibold'>{errorMessage}</p>
             }
           </form>

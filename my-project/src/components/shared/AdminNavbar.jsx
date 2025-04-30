@@ -2,19 +2,18 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Menu, User } from 'lucide-react';
 import axios from 'axios';
-import { useCookies } from 'react-cookie';
 
 const AdminNavbar = ({ setIsOpenProduct, setIsOpenUser, setIsMainMenu }) => {
 
     // fetch admin details
-    const [cookies, setCookie, removeCookie] = useCookies(['Token']);
+    const Token = localStorage.getItem("Token")
     const [admin, setAdmin] = useState({});
     const BASE_URL = "https://miralbackend.venuspaneliya.live/"
 
     const navigate = useNavigate()
 
     const handleLogout = () => {
-        removeCookie('Token');
+        localStorage.removeItem("Token")
         navigate('/admin-login')
     }
 

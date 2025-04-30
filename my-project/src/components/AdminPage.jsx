@@ -18,14 +18,17 @@ const AdminPage = () => {
   const handleSubmitData = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(' https://miralbackend.venuspaneliya.live/user/admin-signin', formData, {
+      const res = await axios.post('https://miralbackend.venuspaneliya.live/user/admin-signin', formData, {
         withCredentials: true
       })
-      res.status === 200 && navigate('/panel-page');
+      if (res.status === 200) {
+        localStorage.setItem('token', res.data.token);
+        navigate('/panel-page');
+      }
 
     } catch (error) {
 
-      setErrorMessage(error.response.data.message)      
+      setErrorMessage(error.response.data.message)
     }
   };
 

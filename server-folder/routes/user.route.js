@@ -54,7 +54,7 @@ userRouter.post('/signup', upload.single('profileimage'), async (req, res) => {
         // });
 
         const user = await createUserServices.createUser(userCreate)
-        
+
         const newUser = { id: user._id, username, email, profileimage: user.profileimage, role: user.role || 'user' };
 
         return res.status(201).json({ user: newUser, message: 'User created successfully' })
@@ -94,14 +94,14 @@ userRouter.post('/signin', async (req, res) => {
         const token = generateToken(user)
 
         // expire token in 1 day
-        res.cookie('token', token, {
-            httpOnly: true,
-            secure: true,
-            sameSite: 'none',
-            maxAge: 24 * 60 * 60 * 1000,
-        })
+        // res.cookie('token', token, {
+        //     httpOnly: true,
+        //     secure: true,
+        //     sameSite: 'none',
+        //     maxAge: 24 * 60 * 60 * 1000,
+        // })
 
-        return res.json({ token, user: userData, message: 'User signed in successfully' })
+        return res.json({ token, user: userData, token, message: 'User signed in successfully' })
     } catch (error) {
 
         console.error("Signin error: ", error)
@@ -139,14 +139,14 @@ userRouter.post('/admin-signin', async (req, res) => {
         const token = generateToken(user)
 
         // cookie expire in a day
-        res.cookie("Token", token, {
-            httpOnly: true,
-            secure: true,
-            sameSite: 'none',   
-            maxAge: 24 * 60 * 60 * 1000,
-        })
+        // res.cookie("Token", token, {
+        //     httpOnly: true,
+        //     secure: true,
+        //     sameSite: 'none',
+        //     maxAge: 24 * 60 * 60 * 1000,
+        // })
 
-        return res.send({ token, user: userData })
+        return res.send({ adminToken: token, user: userData })
 
     } catch (error) {
 

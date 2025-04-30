@@ -1,12 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { useCookies } from 'react-cookie';
 
 const AdminProfile = () => {
 
     const navigate = useNavigate()
-    const [cookies, setCookie, removeCookie] = useCookies(['Token']);
+    const Token = localStorage.getItem("Token")
     const [adminData, setAdminData] = useState({
         // id: '',
         username: '',
@@ -90,7 +89,7 @@ const AdminProfile = () => {
     };
 
     const handleLogout = () => {
-        removeCookie('token');
+        localStorage.removeItem("Token")
         navigate('/admin-login');
     };
 

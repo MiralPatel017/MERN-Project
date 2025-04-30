@@ -7,27 +7,13 @@ import SignupPage from './components/SignupPage'
 import CardPage from './components/shared/CardPage'
 import AdminPage from './components/AdminPage'
 import AdminPanelPage from './components/AdminPanelPage'
-import { CookiesProvider, useCookies } from 'react-cookie'
 import { useEffect } from 'react'
 import AdminProfile from './components/AdminProfile'
 import UserNavbar from './components/shared/UserNavbar'
 import UserProfilePage from './components/UserProfilePage'
 
 const Header = () => {
-  
-  // const [cookies, setCookie, removeCookie] = useCookies(['token']);
-  // const navigate = useNavigate();
 
-  // const handleLogout = () => {
-  //   removeCookie("token");
-  //   navigate('/')
-  // }
-
-  // useEffect(() => {
-  //   if (!cookies.token) {
-  //     navigate('/')
-  //   }
-  // }, [])
 
   return <>
     {
@@ -76,11 +62,11 @@ const Footer = () => {
 }
 
 const Layout = () => (
-  <CookiesProvider>
+  <>
     <Header />
     <Outlet />
     <Footer />
-  </CookiesProvider>
+  </>
 );
 
 function App() {
@@ -89,19 +75,19 @@ function App() {
   return (
     <>
       {/* <Route path="/" element={<SigninPage />} /> */}
-      <CookiesProvider>
-      <Routes>
-        <Route path="/" element={<SigninPage />} />
-        <Route path="/register" element={<SignupPage />} />
-        <Route path='/admin-login' element={<AdminPage />} />
-        <Route path='/panel-page' element={<AdminPanelPage />} />
-        <Route path="/admin/profile" element={<AdminProfile />} />
+      <>
+        <Routes>
+          <Route path="/" element={<SigninPage />} />
+          <Route path="/register" element={<SignupPage />} />
+          <Route path='/admin-login' element={<AdminPage />} />
+          <Route path='/panel-page' element={<AdminPanelPage />} />
+          <Route path="/admin/profile" element={<AdminProfile />} />
           <Route path="/user/profile" element={<UserProfilePage />} />
-        <Route path='/' element={<Layout />}>
-          <Route path="/home-page" element={<HomePage />} />
-        </Route>
-      </Routes>
-      </CookiesProvider>
+          <Route path='/' element={<Layout />}>
+            <Route path="/home-page" element={<HomePage />} />
+          </Route>
+        </Routes>
+      </>
     </>
   )
 }
